@@ -16,6 +16,7 @@ class _HomeState extends State<Home> {
   CameraController? cameraController;
   CameraImage? cameraImage;
 
+  // Load model for 1 - 9
   loadmodel() async {
     Tflite.loadModel(
       model: 'assets/model_unquant.tflite',
