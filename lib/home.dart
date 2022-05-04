@@ -67,7 +67,9 @@ class _HomeState extends State<Home> {
       answer = '';
 
       for (var prediction in predictions!) {
-        answer += prediction['label'].toString().substring(0, 1).toUpperCase() +
+        int firstLabel =
+            int.parse(prediction['label'].toString().substring(0, 1)) + 1;
+        answer += firstLabel.toString().toUpperCase() +
             prediction['label'].toString().substring(1) +
             " " +
             (prediction['confidence'] as double).toStringAsFixed(3) +

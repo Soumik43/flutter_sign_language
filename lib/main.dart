@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primaryColor: Colors.indigo[900],
+        primaryColor: Colors.white,
       ),
       home: const FirstScreen(),
     );
@@ -35,35 +35,57 @@ class FirstScreen extends StatefulWidget {
 class _FirstScreenState extends State<FirstScreen> {
   @override
   Widget build(BuildContext context) {
-    var w = MediaQuery.of(context).size.width;
+    Size s = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Colors.indigo[900],
-      body: Center(
-        child: Container(
-          color: Theme.of(context).primaryColor,
-          child: Container(
-            margin: const EdgeInsets.all(20),
-            height: 50,
-            width: w,
-            child: MaterialButton(
-              color: Colors.white,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20),
-              ),
-              onPressed: () {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const Home(),
+      backgroundColor: Colors.white,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Image.asset("assets/sign_language.png"),
+          SizedBox(
+            height: s.height / 30,
+          ),
+          const Text(
+            "Sign Language Detection system",
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 25,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          SizedBox(
+            height: s.height / 30,
+          ),
+          Container(
+            color: Theme.of(context).primaryColor,
+            child: Container(
+              margin: EdgeInsets.symmetric(horizontal: s.width / 5),
+              height: 50,
+              width: s.width,
+              child: MaterialButton(
+                color: const Color(0xff969BEC),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(50),
+                ),
+                onPressed: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const Home(),
+                    ),
+                  );
+                },
+                child: const Text(
+                  'Start Detecting',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20,
                   ),
-                );
-              },
-              child: const Text(
-                'Start Detecting',
+                ),
               ),
             ),
           ),
-        ),
+        ],
       ),
     );
   }
