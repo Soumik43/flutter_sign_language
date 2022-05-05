@@ -40,47 +40,77 @@ class _FirstScreenState extends State<FirstScreen> {
       backgroundColor: Colors.white,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Image.asset("assets/sign_language.png"),
           SizedBox(
             height: s.height / 30,
           ),
-          const Text(
-            "Sign Language Detection system",
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 25,
-              fontWeight: FontWeight.bold,
+          const Center(
+            child: Text(
+              "Sign Language Detection system",
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 25,
+                fontWeight: FontWeight.bold,
+              ),
+              textAlign: TextAlign.center,
             ),
           ),
           SizedBox(
             height: s.height / 30,
           ),
           Container(
-            color: Theme.of(context).primaryColor,
-            child: Container(
-              margin: EdgeInsets.symmetric(horizontal: s.width / 5),
-              height: 50,
-              width: s.width,
-              child: MaterialButton(
-                color: const Color(0xff969BEC),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(50),
-                ),
-                onPressed: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const Home(),
-                    ),
-                  );
-                },
-                child: const Text(
-                  'Start Detecting',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
+            margin: const EdgeInsets.symmetric(horizontal: 10),
+            height: 50,
+            width: s.width,
+            child: MaterialButton(
+              color: const Color(0xff969BEC),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(50),
+              ),
+              onPressed: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const Home(),
                   ),
+                );
+              },
+              child: const Text(
+                'Start Detecting (Numbers)',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                ),
+              ),
+            ),
+          ),
+          SizedBox(
+            height: s.height / 30,
+          ),
+          Container(
+            margin: const EdgeInsets.symmetric(horizontal: 10),
+            height: 50,
+            width: s.width,
+            child: MaterialButton(
+              color: const Color(0xff969BEC),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(50),
+              ),
+              onPressed: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const Home(isLetters: true),
+                  ),
+                );
+              },
+              child: const Text(
+                'Start Detecting (Letters)',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
                 ),
               ),
             ),
